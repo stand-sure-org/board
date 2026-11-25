@@ -12,6 +12,7 @@ import { Settings } from './settings.tsx'
 import { Sidebar } from './sidebar.tsx'
 import { actorFor, TaskCard, taskIds } from './task.tsx'
 import { Tasks } from './tasks.tsx'
+import { Timeline } from './timeline.tsx'
 import { Work } from './work.tsx'
 import { FilterButton, FilterChips } from './filters.tsx'
 import { byWritten, channelRows, channelThreads, filtering, isTask, knownLabels, listingOf, matches, namesOf, profilesOf, recent, thread as threadOf, threadSchedules, type Filter, type State, type Viewer } from './store.ts'
@@ -226,6 +227,7 @@ export function App() {
         {current.view === 'channel' && (
           <Channel key={current.channel} channel={current.channel} state={state} options={options} known={known} lead={expand} filters={filters} />
         )}
+        {current.view === 'timeline' && <Timeline state={state} lead={expand} params={where.params} />}
         {current.view === 'work' && <Work state={state} now={now} lead={expand} params={where.params} />}
         {current.view === 'tasks' && <Tasks state={state} now={now} lead={expand} where={where} known={known} />}
         {current.view === 'settings' && <Settings state={state} viewer={viewer} now={now} lead={expand} where={where} section={current.section} open={current.open} />}

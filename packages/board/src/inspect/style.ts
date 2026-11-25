@@ -521,6 +521,28 @@ button.file:hover { background: var(--shade-hover); color: var(--bright); }
 .work-meta .needs { display: inline; }
 .work-flag { color: var(--red); }
 .work-foot { display: flex; justify-content: space-between; gap: 8px; }
+.timeline { display: grid; grid-template-columns: minmax(80px, 160px) minmax(0, 1fr); gap: 8px; padding: 12px 20px; }
+.timeline-lane { display: flex; align-items: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--dim); font-size: 12px; }
+.timeline-chart { display: block; overflow: visible; }
+.timeline-tick { fill: var(--faint); font-size: 10px; text-anchor: middle; }
+.timeline-grid { stroke: var(--hairline); stroke-dasharray: 2 3; }
+.timeline-rule { stroke: var(--hairline); }
+.timeline-now { stroke: var(--muted); }
+.timeline-span { cursor: pointer; outline: none; }
+.timeline-span rect { fill: var(--shade); stroke: var(--muted); }
+.timeline-span text { fill: var(--dim); font-size: 10px; pointer-events: none; }
+.timeline-span.completed rect { fill: var(--dim); stroke: var(--dim); }
+.timeline-span.completed text { fill: var(--bg); }
+.timeline-span.open rect { fill: var(--accent-transparent); stroke: var(--bright); }
+.timeline-span.lapsed rect, .timeline-span.expired rect { fill: url(#timeline-hatch); stroke: var(--red); stroke-dasharray: 3 2; }
+.timeline-span.failed rect { fill: var(--red); stroke: var(--red); }
+.timeline-span.failed text { fill: var(--bg); }
+.timeline-span.blocked rect { fill: var(--shade); stroke: var(--bright); stroke-dasharray: 1 2; }
+.timeline-span:hover rect, .timeline-span:focus-visible rect { stroke-width: 2; }
+.timeline-hatch { stroke: var(--red); stroke-width: 2; }
+.timeline-handoff { stroke: var(--bright); stroke-width: 1.25; }
+.timeline-arrowhead { fill: var(--bright); }
+.timeline-key { padding: 0 20px; }
 .task-place { display: flex; align-items: center; gap: 12px; padding: 5px 8px; color: var(--dim); }
 .task-place:hover { background: var(--shade); color: var(--bright); }
 .task-place .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

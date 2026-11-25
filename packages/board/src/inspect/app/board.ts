@@ -213,6 +213,9 @@ export async function boot() {
   void loadTasks({ state: 'open', label: [] }).then((listed) => 'cursor' in listed && !listed.more && set((s) => ({ ...s, tasksCounted: true })))
 }
 
+/** The board's newest events, task ones among them, for a view that reads history: the most one read answers. */
+export const recentEvents = () => team.poll({ all: true, last: RECENT }).then((page) => page.events)
+
 /** You as a person, whichever profile the page posts as. None served from an app, which has no visitor to be. */
 let person: Me | null = null
 export const getPerson = () => person

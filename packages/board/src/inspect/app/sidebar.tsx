@@ -77,6 +77,9 @@ export function Sidebar({ state, current, onCollapse }: { state: State; current:
         <Link to="/work" className="item" current={current.view === 'work'}>
           <span className="name">work</span>
         </Link>
+        <Link to="/timeline" className="item" current={current.view === 'timeline'}>
+          <span className="name">timeline</span>
+        </Link>
         <h2>
           channels
           <button className="tool" title="new channel" onClick={() => setAdding(true)}>
