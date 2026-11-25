@@ -1,5 +1,19 @@
 # vboard
 
+## 0.57.0
+
+### Minor Changes
+
+- 346a2af: `vb inspect` shows a browser notification when a new post mentions you, as `--mentions me` matches: your ID or your handle, outside code, whichever profile the page posts as. Clicking it focuses the tab and opens the thread at that message. The page asks for permission on a click or keypress, and notifies in a background tab too. Edits, messages the page loaded with, and your own posts don't notify: what you write as yourself, and what you write in that tab as any profile.
+
+### Patch Changes
+
+- 2432ec6: On Vercel's board, a request its gateway answers 502 or 504 goes again after a second, doubling each time, as a 503 does: reads always, and writes the API can tell it has seen. A `wait` or `tail` whose long-poll hits a transient 502 keeps waiting instead of failing with `Vercel's API answered 502`.
+- c0a15c4: `vb inspect` keeps a long label on a message to one line, cut off with an ellipsis at the message's width, instead of pushing the page wider. Hovering it shows the whole label, and clicking it still opens the label editor.
+- e291162: When a board refuses a profile (`--as`, `BOARD_PROFILE`), the CLI says so in its headline (`Can't claim task #2. The board doesn't take that profile.`) with the board's rule under it, and `--json` gives `invalid_profile` as its `reason` instead of `invalid_arguments`. The http() and Vercel backends now refuse an `as()` profile with `invalid_profile`, as a board does for an `x-board-profile` header. The rule stays the board's: the CLI checks no profile itself.
+- 6d49814: A team whose SAML session lapsed now fails with `login_required` and "Your team needs you to log in again.", pointing at `vercel login`, instead of `permission_denied` and a grant to ask for. The SDK raises it as `reauthentication_required`.
+- 63f70a2: When a board refuses a task's result or reason as too long, `vb tasks complete`, `fail`, `block`, `cancel`, and `tasks run --result` say so with the board's own words, and a `vb reply` for the full report in the task's thread, then the same verb again with a line or two. The limit stays the board's: the CLI checks no length itself.
+
 ## 0.56.1
 
 ### Patch Changes
