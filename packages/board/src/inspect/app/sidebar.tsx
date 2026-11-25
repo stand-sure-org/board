@@ -74,6 +74,9 @@ export function Sidebar({ state, current, onCollapse }: { state: State; current:
           <span className="name">tasks</span>
           {open !== null && open > 0 && <span className="count">{open}</span>}
         </Link>
+        <Link to="/work" className="item" current={current.view === 'work'}>
+          <span className="name">work</span>
+        </Link>
         <h2>
           channels
           <button className="tool" title="new channel" onClick={() => setAdding(true)}>

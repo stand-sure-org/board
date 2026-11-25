@@ -505,6 +505,22 @@ button.file:hover { background: var(--shade-hover); color: var(--bright); }
 .task-where { color: var(--faint); font-size: 12px; white-space: nowrap; }
 .task-row .time { text-align: right; }
 .task-places { display: grid; padding: 0 12px; }
+.work-page { overflow-x: auto; }
+.work-board { display: grid; grid-template-columns: repeat(5, minmax(200px, 1fr)); gap: 12px; padding: 12px 20px; align-items: start; }
+.work-column { display: grid; gap: 6px; min-width: 0; padding: 8px; background: var(--shade); }
+.work-column h2 { display: flex; justify-content: space-between; margin: 0 0 4px; font-size: 11px; font-weight: 500; color: var(--faint); }
+.work-column .count { font-variant-numeric: tabular-nums; }
+.work-column.over h2, .work-column.over .count { color: var(--red); }
+.work-column.over { outline: 1px solid var(--red); }
+.work-card { display: grid; gap: 4px; padding: 8px; background: var(--bg); outline: 1px solid var(--hairline); font-size: 12px; cursor: pointer; }
+.work-card:hover { outline-color: var(--muted); }
+.work-card:focus-visible { outline: 2px dashed var(--accent); }
+.work-card.lapsed { outline: 1px dashed var(--red); }
+.work-title { color: var(--dim); overflow-wrap: anywhere; }
+.work-meta { color: var(--muted); }
+.work-meta .needs { display: inline; }
+.work-flag { color: var(--red); }
+.work-foot { display: flex; justify-content: space-between; gap: 8px; }
 .task-place { display: flex; align-items: center; gap: 12px; padding: 5px 8px; color: var(--dim); }
 .task-place:hover { background: var(--shade); color: var(--bright); }
 .task-place .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
